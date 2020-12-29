@@ -1,3 +1,23 @@
 .mails {
-  background: whitesmoke;
+  background: rgb(255, 255, 255);
+  overflow: scroll;
+
+  &__settings {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(235, 232, 232);
+    background-color: white;
+    z-index: 3;
+    padding-right: 10px;
+  }
+
+  &__sections {
+    position: sticky;
+    top: 0;
+    display: flex;
+    border-bottom: 1px solid rgb(235, 232, 232);
+    z-index: 3;
+  }
 }
