@@ -1,0 +1,26 @@
+.sidebarOption {
+  display: flex;
+  align-items: center;
+  height: 33px;
+  padding-left: 25px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+  color: #818181;
+  width: 83%;
+  &:hover {
+    background: #f1f3f4;
+  }
+  &.colorRed {
+    margin-top: 15px;
+    color: #c04b37;
+    background: #fce8e6;
+  }
+  h3 {
+    white-space: nowrap;
+    flex: 1;
+    margin-left: 15px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
