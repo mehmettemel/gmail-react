@@ -18,10 +18,16 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import SettingsIcon from '@material-ui/icons/Settings'
 import VideocamIcon from '@material-ui/icons/Videocam'
 import AssignmentIcon from '@material-ui/icons/Assignment'
+import { useDispatch } from 'react-redux'
+import { openSendMessage } from '../../features/mailSlice'
 function Sidebar() {
+  const dispatch = useDispatch()
   return (
     <div className='sidebar'>
-      <button className='sidebar__compose hovered'>
+      <button
+        className='sidebar__compose hovered'
+        onClick={() => dispatch(openSendMessage())}
+      >
         <AddIcon />
         <span>Compose</span>
       </button>

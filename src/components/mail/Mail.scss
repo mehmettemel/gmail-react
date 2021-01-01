@@ -1,0 +1,61 @@
+.mail {
+  &__tools {
+    display: flex;
+    color: red;
+  }
+  &__toolsLeft {
+    flex: 1;
+
+    .MuiButtonBase-root {
+      &:nth-child(1) {
+        margin-right: 0.5em;
+      }
+      &:nth-child(4) {
+        margin-right: 0.7em;
+      }
+      &:nth-child(7) {
+        margin-right: 0.7em;
+      }
+    }
+  }
+  &__toolsRight {
+    padding-right: 1em;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    background-color: white;
+    height: 100vh;
+  }
+  &__bodyHeader {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid whitesmoke;
+    padding: 20px;
+    position: relative;
+    h2 {
+      font-weight: 400;
+      margin-right: 20px;
+    }
+  }
+
+  &__important {
+    color: #e8ab02 !important;
+  }
+  &__message {
+    p {
+      padding: 10px;
+      margin-right: 20px;
+      overflow-wrap: break-word;
+    }
+  }
+  &__time {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    font-size: 12px;
+    color: gray;
+  }
+}

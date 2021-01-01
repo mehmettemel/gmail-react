@@ -13,6 +13,7 @@ import Section from '../section/Section'
 import PeopleIcon from '@material-ui/icons/People'
 
 import LocalOfferIcon from '@material-ui/icons/LocalOffer'
+import MailRow from '../mail/MailRow'
 
 function Mails() {
   return (
@@ -43,9 +44,25 @@ function Mails() {
         </div>
       </div>
       <div className='mails__sections'>
-        <Section Icon={InboxIcon} title={'Primary'} color='red' selected />
+        <Section Icon={InboxIcon} title={'Primary'} color='#D93025' selected />
         <Section Icon={PeopleIcon} title={'Social'} color='#1a73e8' />
         <Section Icon={LocalOfferIcon} title={'Promotions'} color='green' />
+      </div>
+
+      <div className='mails__list'>
+        <MailRow
+          title='Ramos'
+          subject='Hey brother!'
+          description='When is the meeting start?'
+          time='10pm'
+        />
+        <MailRow
+          title='Firebase'
+          subject='Welcome to Firebase!'
+          description='
+          Hi Mehmet,Youre now part of a community of hundreds of thousands of developers using Firebase to build better mobile and web apps, as well as grow their businesses. Congrats on creating your first project.Please keep using firebase..'
+          time='6am'
+        />
       </div>
     </div>
   )
