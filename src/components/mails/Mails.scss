@@ -1,7 +1,17 @@
 .mails {
   background: rgb(255, 255, 255);
-  overflow: scroll;
+  overflow: hidden;
+  position: relative;
 
+  &__list {
+    position: absolute;
+    top: 104px;
+    bottom: 0;
+    left: 0;
+    right: -17px; /* Increase/Decrease this value for cross-browser compatibility */
+    overflow-y: scroll;
+    padding-bottom: 20px;
+  }
   &__settings {
     position: sticky;
     top: 0;
@@ -9,7 +19,7 @@
     justify-content: space-between;
     border-bottom: 1px solid rgb(235, 232, 232);
     background-color: white;
-    z-index: 3;
+    z-index: 6;
     padding-right: 10px;
   }
 
@@ -20,4 +30,13 @@
     border-bottom: 1px solid rgb(235, 232, 232);
     z-index: 3;
   }
+}
+
+.mails {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.mails::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }

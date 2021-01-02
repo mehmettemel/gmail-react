@@ -13,7 +13,7 @@
 
   &__options {
     display: flex;
-    flex: 0.15;
+    flex: 0.1225;
     .MuiIconButton-root {
       padding: 6px;
       color: rgba(195, 193, 193, 0.972);
@@ -28,7 +28,7 @@
   &__message {
     width: 300px;
     display: flex;
-    flex: 0.98;
+    flex: 2 1;
     align-items: center;
     font-size: 14px;
     h4 {
@@ -41,6 +41,7 @@
     }
   }
   &__title {
+    margin-left: 4em;
     font-size: 14px;
   }
 

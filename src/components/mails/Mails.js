@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Mails.scss'
 import { Checkbox, IconButton } from '@material-ui/core'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
@@ -14,8 +14,23 @@ import PeopleIcon from '@material-ui/icons/People'
 
 import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import MailRow from '../mail/MailRow'
+import { db } from '../../api/firebase'
 
 function Mails() {
+  const [mails, setMails] = useState([])
+
+  useEffect(() => {
+    db.collection('emails')
+      .orderBy('timestamp', 'desc')
+      .onSnapshot((snapshot) =>
+        setMails(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+      )
+  }, [])
   return (
     <div className='mails'>
       <div className='mails__settings'>
@@ -50,19 +65,16 @@ function Mails() {
       </div>
 
       <div className='mails__list'>
-        <MailRow
-          title='Ramos'
-          subject='Hey brother!'
-          description='When is the meeting start?'
-          time='10pm'
-        />
-        <MailRow
-          title='Firebase'
-          subject='Welcome to Firebase!'
-          description='
-          Hi Mehmet,Youre now part of a community of hundreds of thousands of developers using Firebase to build better mobile and web apps, as well as grow their businesses. Congrats on creating your first project.Please keep using firebase..'
-          time='6am'
-        />
+        {mails.map(({ id, data: { to, subject, message, timestamp } }) => (
+          <MailRow
+            id={id}
+            key={id}
+            title={to}
+            subject={subject}
+            description={message}
+            time={new Date(timestamp?.seconds * 1000).toUTCString()}
+          />
+        ))}
       </div>
     </div>
   )
